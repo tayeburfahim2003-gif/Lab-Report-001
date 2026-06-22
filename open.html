@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GUB Campus Marketplace - Student Hiring Platform</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #f0f2f5 100%);
+            color: #1a1a1a;
+        }
+        /* Navigation */
+        
+        .top-nav {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 12px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #4a5568;
+            font-weight: 500;
+            font-size: 15px;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: #074d1a;
+        }
+        
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 5px 15px;
+            background: #f7fafc;
+            border-radius: 30px;
+            cursor: pointer;
+        }
+        
+        .user-avatar {
+            width: 35px;
+            height: 35px;
+            background: linear-gradient(135deg, #175728, #053515);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 600;
+        }
+        
+        .user-name {
+            font-weight: 600;
+            color: #1a202c;
+        }
+        
+        .hire-btn {
+            background: #0f5421;
+            color: white !important;
+            padding: 10px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+        }
+        /* Hero Section - Inspired by Topalt */
+        
+        .hero {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 40px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        
+        .hero-content h1 {
+            font-size: 52px;
+            font-weight: 800;
+            line-height: 1.1;
+            color: #0a1c0a;
+            margin-bottom: 20px;
+        }
+        
+        .hero-highlight {
+            color: #12ea4b;
+            background: rgba(18, 234, 75, 0.1);
+            padding: 0 8px;
+            border-radius: 8px;
+        }
+        
+        .hero-subtitle {
+            font-size: 18px;
+            color: #4a5568;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+        
+        .search-box {
+            background: white;
+            padding: 8px;
+            border-radius: 50px;
+            display: flex;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+        
+        .search-input {
+            flex: 1;
+            border: none;
+            padding: 15px 20px;
+            font-size: 16px;
+            border-radius: 50px;
+            outline: none;
+        }
+        
+        .search-btn {
+            background: #12ea4b;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .search-btn:hover {
+            background: #0fb83b;
+            transform: translateY(-2px);
+        }
+        
+        .stats {
+            display: flex;
+            gap: 40px;
+        }
+        
+        .stat-item {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .stat-number {
+            font-size: 28px;
+            font-weight: 700;
+            color: #1a202c;
+        }
+        
+        .stat-label {
+            font-size: 14px;
+            color: #718096;
+        }
+        
+        .hero-image {
+            background: linear-gradient(135deg, #12ea4b10, #05351510);
+            border-radius: 20px;
+            padding: 30px;
+            position: relative;
+        }
+        
+        .expert-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .expert-avatar {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: 700;
+        }
+        
+        .expert-info h3 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+        
+        .expert-title {
+            color: #12ea4b;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        
+        .expert-company {
+            font-size: 12px;
+            color: #718096;
+        }
+        
+        .rating {
+            color: #fbbf24;
+            margin-top: 5px;
+        }
+        /* Categories/Services Grid */
+        
+        .services-section {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 40px;
+        }
+        
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .section-header h2 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #0a1c0a;
+        }
+        
+        .section-link {
+            color: #12ea4b;
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+        }
+        
+        .category-card {
+            background: white;
+            padding: 25px 20px;
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 1px solid #edf2f7;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(18, 234, 75, 0.1);
+            border-color: #12ea4b;
+        }
+        
+        .category-icon {
+            font-size: 32px;
+            color: #12ea4b;
+            margin-bottom: 15px;
+        }
+        
+        .category-card h3 {
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        
+        .category-card p {
+            font-size: 13px;
+            color: #718096;
+        }
+        /* Talent Grid */
+        
+        .talent-section {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 40px;
+        }
+        
+        .talent-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        
+        .talent-card {
+            background: white;
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid #edf2f7;
+            transition: all 0.3s;
+        }
+        
+        .talent-card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+            transform: translateY(-5px);
+        }
+        
+        .talent-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+        
+        .talent-avatar {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #12ea4b, #053515);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: 700;
+        }
+        
+        .talent-badge {
+            background: #fed7d7;
+            color: #c53030;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .talent-name {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .talent-role {
+            color: #12ea4b;
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        
+        .talent-university {
+            font-size: 13px;
+            color: #718096;
+            margin-bottom: 10px;
+        }
+        
+        .talent-skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 15px 0;
+        }
+        
+        .skill-tag {
+            background: #f7fafc;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            color: #4a5568;
+        }
+        
+        .talent-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #1a202c;
+            margin: 15px 0;
+        }
+        
+        .talent-price span {
+            font-size: 14px;
+            font-weight: 400;
+            color: #718096;
+        }
+        
+        .hire-now-btn {
+            width: 100%;
+            background: white;
+            border: 2px solid #12ea4b;
+            color: #12ea4b;
+            padding: 12px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .hire-now-btn:hover {
+            background: #12ea4b;
+            color: white;
+        }
+        /* Marketplace Section for Products */
+        
+        .marketplace-section {
+            max-width: 1400px;
+            margin: 60px auto;
+            padding: 0 40px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid #edf2f7;
+        }
+        
+        .product-image {
+            height: 180px;
+            background: linear-gradient(135deg, #667eea20, #764ba220);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #4a5568;
+            font-size: 14px;
+        }
+        
+        .product-details {
+            padding: 20px;
+        }
+        
+        .product-category {
+            color: #12ea4b;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+        
+        .product-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+        
+        .product-seller {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .seller-avatar {
+            width: 30px;
+            height: 30px;
+            background: #e2e8f0;
+            border-radius: 50%;
+        }
+        
+        .product-price {
+            font-size: 20px;
+            font-weight: 700;
+            color: #12ea4b;
+        }
+        /* Testimonials Section - Inspired by your screenshot */
+        
+        .testimonials {
+            max-width: 1400px;
+            margin: 80px auto;
+            padding: 0 40px;
+        }
+        
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.02);
+        }
+        
+        .rating {
+            color: #ffc107;
+            margin-bottom: 15px;
+        }
+        
+        .testimonial-text {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #2d3748;
+            margin-bottom: 25px;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .author-info h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .author-info p {
+            font-size: 14px;
+            color: #718096;
+        }
+        /* CTA Section */
+        
+        .cta-section {
+            background: linear-gradient(135deg, #0a1c0a, #053515);
+            border-radius: 30px;
+            padding: 60px;
+            margin: 60px 40px;
+            text-align: center;
+            color: white;
+        }
+        
+        .cta-section h2 {
+            font-size: 40px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        
+        .cta-btn-primary {
+            background: #12ea4b;
+            color: #0a1c0a;
+            border: none;
+            padding: 16px 40px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .cta-btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+            padding: 16px 40px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .cta-btn-secondary:hover {
+            background: white;
+            color: #0a1c0a;
+        }
+        /* Footer */
+        
+        footer {
+            background: white;
+            padding: 60px 40px 30px;
+            margin-top: 80px;
+        }
+        
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 40px;
+        }
+        
+        .footer-logo p {
+            color: #718096;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        
+        .footer-links h4 {
+            font-size: 16px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            display: block;
+            color: #718096;
+            text-decoration: none;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .footer-bottom {
+            max-width: 1400px;
+            margin: 40px auto 0;
+            padding-top: 30px;
+            border-top: 1px solid #e2e8f0;
+            display: flex;
+            justify-content: space-between;
+            color: #718096;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 1200px) {
+            .categories-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .talent-grid,
+            .products-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .testimonial-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+            }
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .talent-grid,
+            .products-grid,
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+            .footer-content {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation - Inspired by Topalt style -->
+    <nav class="top-nav">
+        <div class="nav-left">
+            <div class="logo">
+                <img src="IMG_0907.png" alt="GUB Logo" style="height: 40px;">
+            </div>
+            <div class="nav-links">
+                <a href="#">Find Talent</a>
+                <a href="#">Find Work</a>
+                <a href="#">Services</a>
+                <a href="#">Marketplace</a>
+                <a href="#">About Us</a>
+            </div>
+        </div>
+        <div class="nav-right">
+            <a href="#" style="text-decoration: none; color: #4a5568;">Apply as Talent</a>
+            <a href="#" class="hire-btn">Hire Top Talent</a>
+            <div class="user-menu">
+                <div class="user-avatar">JD</div>
+                <span class="user-name">John Doe</span>
+                <i class="fas fa-chevron-down" style="color: #718096;"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section - Hire the Top 3% -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>
+                Hire the <span class="hero-highlight">Top 3%</span><br> of GUB Campus Talent
+            </h1>
+            <p class="hero-subtitle">
+                GUB Campus Marketing is an exclusive network of top student developers, designers, marketing experts, and creators. Hire fellow students for your most important projects.
+            </p>
+            <div class="search-box">
+                <input type="text" class="search-input" placeholder="Try 'Web Developer', 'Graphic Designer', 'Presentation Expert'...">
+                <button class="search-btn">Search Talent</button>
+            </div>
+            <div class="stats">
+                <div class="stat-item">
+                    <span class="stat-number">★ 4.9/5</span>
+                    <span class="stat-label">from 2,500+ reviews</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">500+</span>
+                    <span class="stat-label">Verified Students</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">24/7</span>
+                    <span class="stat-label">Support</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="expert-card">
+                <div class="expert-avatar">CP</div>
+                <div class="expert-info">
+                    <h3>Camila Pereira</h3>
+                    <div class="expert-title">Verified Expert in Marketing</div>
+                    <div class="expert-company">Paid Media Expert</div>
+                    <div class="rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <span style="color: #718096; margin-left: 5px;">4.9</span>
+                    </div>
+                    <div style="font-size: 12px; color: #718096; margin-top: 8px;">
+                        PREVIOUSLY AT Omnicom MediaGroup
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories/Services - Leverage World-class Talent -->
+    <section class="services-section">
+        <div class="section-header">
+            <h2>Leverage World-class Campus Talent</h2>
+            <a href="#" class="section-link">View all services →</a>
+        </div>
+        <div class="categories-grid">
+            <div class="category-card">
+                <div class="category-icon"><i class="fas fa-code"></i></div>
+                <h3>Developers</h3>
+                <p>Web, App, Software engineers</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon"><i class="fas fa-paint-brush"></i></div>
+                <h3>Designers</h3>
+                <p>UI/UX, Graphic, Illustrators</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>Marketing</h3>
+                <p>Digital, Growth, Social Media</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon"><i class="fas fa-briefcase"></i></div>
+                <h3>Consultants</h3>
+                <p>Business, Strategy, Finance</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon"><i class="fas fa-tasks"></i></div>
+                <h3>Project Managers</h3>
+                <p>Scrum Masters, PMs</p>
+            </div>
+            <div class="category-card">
+                <div class="category-icon"><i class="fas fa-box"></i></div>
+                <h3>Product Managers</h3>
+                <p>Digital Products, Owners</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Talent for Hire -->
+    <section class="talent-section">
+        <div class="section-header">
+            <h2>Available for Hire Now</h2>
+            <a href="#" class="section-link">Browse all talent →</a>
+        </div>
+        <div class="talent-grid">
+            <div class="talent-card">
+                <div class="talent-header">
+                    <div class="talent-avatar">RH</div>
+                    <span class="talent-badge">Top Rated</span>
+                </div>
+                <h3 class="talent-name">Rafiq Hasan</h3>
+                <div class="talent-role">Full Stack Developer</div>
+                <div class="talent-university">CSE, 4th Year</div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span style="color: #718096;">4.9 (32 jobs)</span>
+                </div>
+                <div class="talent-skills">
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">Node.js</span>
+                    <span class="skill-tag">MongoDB</span>
+                </div>
+                <div class="talent-price">$25 <span>/ hour</span></div>
+                <button class="hire-now-btn">Hire Now</button>
+            </div>
+
+            <div class="talent-card">
+                <div class="talent-header">
+                    <div class="talent-avatar">NN</div>
+                    <span class="talent-badge">Presentation Pro</span>
+                </div>
+                <h3 class="talent-name">Nusrat Nahar</h3>
+                <div class="talent-role">Presentation Designer</div>
+                <div class="talent-university">BBA, 3rd Year</div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span style="color: #718096;">5.0 (18 jobs)</span>
+                </div>
+                <div class="talent-skills">
+                    <span class="skill-tag">PowerPoint</span>
+                    <span class="skill-tag">Canva</span>
+                    <span class="skill-tag">Infographics</span>
+                </div>
+                <div class="talent-price">$15 <span>/ hour</span></div>
+                <button class="hire-now-btn">Hire Now</button>
+            </div>
+
+            <div class="talent-card">
+                <div class="talent-header">
+                    <div class="talent-avatar">SK</div>
+                    <span class="talent-badge">Homework Help</span>
+                </div>
+                <h3 class="talent-name">Sadman Kabir</h3>
+                <div class="talent-role">Math & Physics Tutor</div>
+                <div class="talent-university">EEE, 2nd Year</div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span style="color: #718096;">4.8 (45 jobs)</span>
+                </div>
+                <div class="talent-skills">
+                    <span class="skill-tag">Calculus</span>
+                    <span class="skill-tag">Physics</span>
+                    <span class="skill-tag">Python</span>
+                </div>
+                <div class="talent-price">$12 <span>/ hour</span></div>
+                <button class="hire-now-btn">Hire Now</button>
+            </div>
+
+            <div class="talent-card">
+                <div class="talent-header">
+                    <div class="talent-avatar">FA</div>
+                    <span class="talent-badge">Verified</span>
+                </div>
+                <h3 class="talent-name">Fatema Akter</h3>
+                <div class="talent-role">Graphic Designer</div>
+                <div class="talent-university">Architecture, 4th Year</div>
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <span style="color: #718096;">4.9 (27 jobs)</span>
+                </div>
+                <div class="talent-skills">
+                    <span class="skill-tag">Photoshop</span>
+                    <span class="skill-tag">Illustrator</span>
+                    <span class="skill-tag">Figma</span>
+                </div>
+                <div class="talent-price">$18 <span>/ hour</span></div>
+                <button class="hire-now-btn">Hire Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketplace - Sell Products Section -->
+    <section class="marketplace-section">
+        <div class="section-header">
+            <h2>Campus Marketplace • Buy & Sell</h2>
+            <a href="#" class="section-link">Browse marketplace →</a>
+        </div>
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-image">
+                    <i class="fas fa-book fa-3x" style="color: #12ea4b;"></i>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">Textbooks</div>
+                    <h3 class="product-title">Introduction to Algorithms (CLRS)</h3>
+                    <div class="product-seller">
+                        <div class="seller-avatar"></div>
+                        <span style="font-size: 14px;">Tanvir Ahmed • CSE</span>
+                    </div>
+                    <div class="product-price">$25</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <i class="fas fa-laptop fa-3x" style="color: #12ea4b;"></i>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">Electronics</div>
+                    <h3 class="product-title">Scientific Calculator FX-991EX</h3>
+                    <div class="product-seller">
+                        <div class="seller-avatar"></div>
+                        <span style="font-size: 14px;">Nabila Islam • EEE</span>
+                    </div>
+                    <div class="product-price">$18</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <i class="fas fa-paint-brush fa-3x" style="color: #12ea4b;"></i>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">Art Supplies</div>
+                    <h3 class="product-title">Professional Sketching Set</h3>
+                    <div class="product-seller">
+                        <div class="seller-avatar"></div>
+                        <span style="font-size: 14px;">Mithila Rahman • Arch</span>
+                    </div>
+                    <div class="product-price">$30</div>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div class="product-image">
+                    <i class="fas fa-tshirt fa-3x" style="color: #12ea4b;"></i>
+                </div>
+                <div class="product-details">
+                    <div class="product-category">Clothing</div>
+                    <h3 class="product-title">GUB Cultural Week T-shirt (New)</h3>
+                    <div class="product-seller">
+                        <div class="seller-avatar"></div>
+                        <span style="font-size: 14px;">Rakib Hossain • BBA</span>
+                    </div>
+                    <div class="product-price">$12</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials - Client Reviews -->
+    <section class="testimonials">
+        <div class="section-header">
+            <h2>★ 4.9 out of 5 from 2,500+ campus jobs</h2>
+            <span style="color: #718096;">Trusted by GUB students</span>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">
+                    "I have been working with GUB Campus Marketing engineers for several years now. They have all been exceptionally talented, very professional, highly productive, and great team players."
+                </p>
+                <div class="testimonial-author">
+                    <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #12ea4b20, #05351520); border-radius: 50%;"></div>
+                    <div class="author-info">
+                        <h4>Ian Stokes-Rees</h4>
+                        <p>Partner, BCGX</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">
+                    "GUB Campus Marketing is my go-to source to find high-quality talent I can't find elsewhere. I've been very impressed with the breadth and depth of talent they have been able to deliver."
+                </p>
+                <div class="testimonial-author">
+                    <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #12ea4b20, #05351520); border-radius: 50%;"></div>
+                    <div class="author-info">
+                        <h4>Tess Caputo</h4>
+                        <p>Chief Operations Officer, Zoetis</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="testimonial-card">
+                <div class="rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <p class="testimonial-text">
+                    "With the pressure on and millions watching, GUB Campus Marketing delivered the talent and expertise needed to launch our fan engagement platform during the NBA Playoffs."
+                </p>
+                <div class="testimonial-author">
+                    <div style="width: 50px; height: 50px; background: linear-gradient(135deg, #12ea4b20, #05351520); border-radius: 50%;"></div>
+                    <div class="author-info">
+                        <h4>Conor Kenney</h4>
+                        <p>VP, Product & Technology, Cleveland Cavaliers</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <h2>Ready to start your project?</h2>
+        <p style="font-size: 18px; opacity: 0.9; margin-bottom: 20px;">Join the top 3% of GUB talent or hire them for your next project</p>
+        <div class="cta-buttons">
+            <button class="cta-btn-primary">Hire Top Talent</button>
+            <button class="cta-btn-secondary">Apply as Talent</button>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <img src="IMG_0907.png" alt="GUB Logo" style="height: 40px;">
+                <p>Connect • Collaborate • Create<br>The exclusive network of top GUB campus talent.</p>
+            </div>
+            <div class="footer-links">
+                <h4>For Clients</h4>
+                <a href="#">Hire Talent</a>
+                <a href="#">Consulting & Services</a>
+                <a href="#">Success Stories</a>
+                <a href="#">Trust & Safety</a>
+            </div>
+            <div class="footer-links">
+                <h4>For Talent</h4>
+                <a href="#">Apply as Talent</a>
+                <a href="#">Success Resources</a>
+                <a href="#">Community</a>
+                <a href="#">FAQs</a>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <a href="#">About Us</a>
+                <a href="#">Blog</a>
+                <a href="#">Careers</a>
+                <a href="#">Press</a>
+            </div>
+            <div class="footer-links">
+                <h4>Legal</h4>
+                <a href="#">Terms of Service</a>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Cookie Policy</a>
+                <a href="#">Accessibility</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 GUB Online Campus Marketing. All rights reserved.</span>
+            <span>
+                <i class="fab fa-facebook" style="margin: 0 10px; cursor: pointer;"></i>
+                <i class="fab fa-twitter" style="margin: 0 10px; cursor: pointer;"></i>
+                <i class="fab fa-linkedin" style="margin: 0 10px; cursor: pointer;"></i>
+                <i class="fab fa-instagram" style="margin: 0 10px; cursor: pointer;"></i>
+            </span>
+        </div>
+    </footer>
+
+    <script>
+        // Add smooth scrolling and interactive elements
+        document.addEventListener('DOMContentLoaded', function() {
+            // Handle hire buttons
+            const hireButtons = document.querySelectorAll('.hire-now-btn');
+            hireButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const talentName = this.closest('.talent-card').querySelector('.talent-name').textContent;
+                    alert(`Hiring request sent to ${talentName}! (Demo)`);
+                });
+            });
+
+            // Handle search
+            const searchBtn = document.querySelector('.search-btn');
+            searchBtn.addEventListener('click', function() {
+                const query = document.querySelector('.search-input').value;
+                alert(`Searching for: ${query || 'all talent'} (Demo)`);
+            });
+
+            // Handle CTA buttons
+            const ctaButtons = document.querySelectorAll('.cta-btn-primary, .cta-btn-secondary');
+            ctaButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    if (this.textContent.includes('Hire')) {
+                        alert('Redirecting to hire page... (Demo)');
+                    } else {
+                        alert('Redirecting to talent application... (Demo)');
+                    }
+                });
+            });
+
+            // Handle category cards
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach(card => {
+                card.addEventListener('click', function() {
+                    const category = this.querySelector('h3').textContent;
+                    alert(`Browsing ${category} (Demo)`);
+                });
+            });
+
+            // Handle product purchase
+            const productCards = document.querySelectorAll('.product-card');
+            productCards.forEach(card => {
+                card.addEventListener('click', function(e) {
+                    if (!e.target.classList.contains('hire-now-btn')) {
+                        const product = this.querySelector('.product-title').textContent;
+                        alert(`Viewing product: ${product} (Demo)`);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>
